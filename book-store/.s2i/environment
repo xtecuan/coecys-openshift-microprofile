@@ -4,4 +4,4 @@ MAVEN_S2I_ARTIFACT_DIRS=target/payara-micro-app
 S2I_SOURCE_DEPLOYMENTS_FILTER=restapi-microbundle.jar
 JAVA_OPTS=
 AB_JOLOKIA_OFF=true
-JAVA_APP_JAR=/deployments/restapi-microbundle.jar
+JAVA_APP_JAR=/tmp/restapi-microbundle.jar
