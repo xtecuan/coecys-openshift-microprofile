@@ -1,0 +1,1 @@
+create-jvm-options \-Dhttp.proxyHost=10.5.3.200:-Dhttp.proxyPort=3128:-Dhttps.proxyHost=10.5.3.200:-Dhttps.proxyPort=3128:-Dhttp.nonProxyHosts=localhost,127.0.0.1:-Djavax.net.ssl.keyStore=/opt/payara/config/keystore.jks:-Djavax.net.ssl.keyStorePassword=changeit:-Djavax.net.ssl.trustStore=/opt/payara/config/cacerts.jks:-Djavax.net.ssl.trustStorePassword=changeit

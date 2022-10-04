@@ -1,0 +1,15 @@
+FROM payara/micro:5.2020.7-jdk11
+COPY target/${WAR_FILE} ${DEPLOY_DIR}
+USER root
+COPY files/timezone /etc/timezone
+COPY files/localtime /etc/localtime
+USER payara
+RUN mkdir -p /opt/payara/logs
+RUN mkdir -p ${PAYARA_DIR}/config
+RUN mkdir -p ${PAYARA_DIR}/root
+COPY files/logger.properties /opt/payara/config
+COPY files/keystore.jks  ${PAYARA_DIR}/config
+COPY files/cacerts.jks  ${PAYARA_DIR}/config
+COPY files/prebootcommandfile.txt ${PAYARA_DIR}/config
+COPY files/postbootcommandfile.txt ${PAYARA_DIR}/config
+CMD ["--deploymentDir", "/opt/payara/deployments","--logproperties", "/opt/payara/config/logger.properties","--port","9876","--minhttpthreads","10","--maxhttpthreads","100","--nocluster","--sslPort","8181","--sslcert","s1as","--prebootcommandfile","/opt/payara/config/prebootcommandfile.txt","--rootdir","/opt/payara/root"]
