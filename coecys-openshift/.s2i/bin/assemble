@@ -9,7 +9,7 @@ if [ $rc -eq 0 ]; then
     cp /etc/localtime /etc/localtime.old
     rm -rfv /etc/localtime
     ln -s /usr/share/zoneinfo/America/El_Salvador /etc/localtime
-RUN date
+    date
 else
     echo "After failed assembling"
 fi
