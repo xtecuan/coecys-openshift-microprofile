@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "Before assembling"
+
+/usr/local/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    echo "After successful assembling"
+    cp /etc/localtime /etc/localtime.old
+    rm -rfv /etc/localtime
+    ln -s /usr/share/zoneinfo/America/El_Salvador /etc/localtime
+RUN date
+else
+    echo "After failed assembling"
+fi
+
+exit $rc
